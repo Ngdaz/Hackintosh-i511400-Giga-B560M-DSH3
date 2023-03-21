@@ -51,10 +51,10 @@ Currently running:
 
 ### Not Tested
 
-- [] GPU acceleration
-- [] CPU Power Management
-- [] Temperatures and stability with 100% CPU
-- [] BootCamp
+- [ ] GPU acceleration
+- [ ] CPU Power Management
+- [ ] Temperatures and stability with 100% CPU
+- [ ] BootCamp
 
 
 ## ACPI patches
@@ -130,4 +130,3 @@ For how to update OpenCore and kexts, read [this guide](https://dortania.github.
 - [Serouin repo](https://github.com/serouin/b660m-aorus-pro-hackintosh)
 - [Dortania OC guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - Hackintosh Paradise (Discord channel) for EFI review and fake CPUid
-- 
