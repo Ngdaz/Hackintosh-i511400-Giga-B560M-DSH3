@@ -1,8 +1,8 @@
 # Hackintosh-i511400-Giga-B560M-DSH3-OpenCore
 
-This repo contains information for getting macOS 12 Montery working on a PC.
+This repo contains information for getting macOS 12 Montery for a PC.
 
-The compatibility is very good for the most part, and it behaves as a real IPro. In general, the experience is pleasant, as the laptop is smooth and responsive under macOS. 
+The compatibility is very good for the most part, and it behaves as a real I MAC Pro. In general, the experience is pleasant, as the laptop is smooth and responsive under macOS. 
 
 Currently running:
 
@@ -23,12 +23,13 @@ Currently running:
 | Display   | M27Q Gigabyte 2k 170Hz                  |
 | dGPU      | 6600xt XFX 8GB                          |
 | LAN       | Realtek's Gigabit Ethernet.             |
+| Bluetooth | USB Ugreen 30443                        |
 
 ## Status
 
 ### Working
 
-- [x] Audio for DP and HDMI from 6600xt
+- [x] DP and HDMI from 6600xt
 - [x] Ethernet
 - [x] iCloud services - iMessage, FaceTime, iCloud Drive
 - [x] Mac-like booting interface for multiboot
@@ -38,15 +39,15 @@ Currently running:
 - [x] DP and HDMI video and audio up to 1440p
 - [x] FileVault
 - [x] DRM content playback (Netflix, Apple TV+)
+- [x] Audio jack
+- [x] Bluetooth with usb ugreen and bluetooth kext
+- [x] CPU, GPU, Fan sensor 
 
 ### Working, sort of
-
-- [ ] Audio jack - sometimes works. I don't use it so won't fix but will merge pull requests
 
 ### Not working at the moment
 
 - [ ] DP with 165hz 
-- [ ] Wifi Bluetooth, currently have any card
 - [ ] AirDrop
 
 ### Not Tested
@@ -117,8 +118,7 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 ## Post install
 
 - Generate your own SMBIOS
-- Generate your own ACPI
-
+- Generate your own ACPIß
 - [Make your own USB map kext](https://dortania.github.io/OpenCore-Post-Install/usb/)
 - Generate your own CPU frequency vectors using [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend). The one included here is set to Balance power and CPU lowest frequency set to 500 MHz
 - (Optional) [Rectangle](https://github.com/rxhanson/Rectangle) for window management similar to Windows (but better)
