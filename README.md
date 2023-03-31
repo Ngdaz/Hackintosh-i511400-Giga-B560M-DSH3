@@ -19,7 +19,7 @@ Currently running:
 | CPU       | Intel i5-11400                          |
 | Memory    | 16GB 2666Mhz                            |
 | Storage1  | WD SN750 250GB                          |
-| Storage1  | HDD WD 500GB                            |
+| Storage2  | HDD WD 500GB                            |
 | Display   | M27Q Gigabyte 2k 170Hz                  |
 | dGPU      | 6600xt XFX 8GB                          |
 | LAN       | Realtek's Gigabit Ethernet.             |
@@ -42,12 +42,13 @@ Currently running:
 - [x] Audio jack
 - [x] Bluetooth with usb ugreen and bluetooth kext
 - [x] CPU, GPU, Fan sensor 
+- [x] DP with 120hz 
 
 ### Working, sort of
 
 ### Not working at the moment
 
-- [ ] DP with 165hz 
+- [ ] DP with 165hz (I have 2k 170hz Monitor)
 - [ ] AirDrop
 
 ### Not Tested
@@ -123,6 +124,9 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 - Generate your own CPU frequency vectors using [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend). The one included here is set to Balance power and CPU lowest frequency set to 500 MHz
 - (Optional) [Rectangle](https://github.com/rxhanson/Rectangle) for window management similar to Windows (but better)
 - (Optional) [LuLu](https://github.com/objective-see/LuLu) for network traffic control
+
+## Issue
+- Run this command in Recovery mode if you have monitor with high refresh rate (I have 2k and 170hz monitor). It will fix the screen go black when you change the refresh rate (only works with 120hz, 165hz still get black screen)
 
 For how to update OpenCore and kexts, read [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/update.html#_5-boot). Personally, I use MountEFI to mount EFI partitions, ProperTree to edit plist files, and OCConfigCompare to compare my config files to the latest sample configs from OpenCore. I also always test drive my updated EFI with a USB stick before moving it to the EFI partition of the main SSD.
 
