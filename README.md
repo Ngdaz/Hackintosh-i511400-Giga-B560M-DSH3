@@ -2,7 +2,7 @@
 
 This repo contains information for getting macOS 12 Montery for a PC.
 
-The compatibility is very good for the most part, and it behaves as a real I MAC Pro. In general, the experience is pleasant, as the laptop is smooth and responsive under macOS. 
+The compatibility is very good for the most part, and it behaves as a real I MAC Pro. In general, the experience is pleasant, both in macOS and Win11 dual boot.
 
 Currently running:
 
@@ -14,16 +14,17 @@ Currently running:
 
 ## Hardware info
 
-| Component | Model                                   |
-| --------- | --------------------------------------- |
-| CPU       | Intel i5-11400                          |
-| Memory    | 16GB 2666Mhz                            |
-| Storage1  | WD SN750 250GB                          |
-| Storage2  | HDD WD 500GB                            |
-| Display   | M27Q Gigabyte 2k 170Hz                  |
-| dGPU      | 6600xt XFX 8GB                          |
-| LAN       | Realtek's Gigabit Ethernet.             |
-| Bluetooth | USB Ugreen 30443                        |
+| Component | Model                       |
+| --------- | --------------------------- |
+| CPU       | Intel i5-11400              |
+| Memory    | 16GB 2666Mhz                |
+| Storage1  | WD SN750 250GB              |
+| Storage2  | HDD WD 500GB                |
+| Storage3  | SSD Sata BX500 240GB        |
+| Display   | M27Q Gigabyte 2k 170Hz      |
+| dGPU      | 6600xt XFX 8GB              |
+| LAN       | Realtek's Gigabit Ethernet. |
+| Bluetooth | USB Ugreen 30443            |
 
 ## Status
 
@@ -41,15 +42,20 @@ Currently running:
 - [x] DRM content playback (Netflix, Apple TV+)
 - [x] Audio jack
 - [x] Bluetooth with usb ugreen and bluetooth kext
-- [x] CPU, GPU, Fan sensor 
-- [x] DP with 120hz 
+- [x] CPU, GPU, Fan sensor
+- [x] Dual boot with Win 11
+- [x] DP with 120hz
+- [x] HDMI with 144hz
 
 ### Working, sort of
+
+- [x] Sometime need to turn off and reopen monitor after wakeup from sleep
+- [x] Screen go black but the PC still running when change win and macos have the same refresh rate (I can't fix this but will merge pull request)
 
 ### Not working at the moment
 
 - [ ] DP with 165hz (I have 2k 170hz Monitor)
-- [ ] AirDrop
+- [ ] AirDrop (change to realmac bluetooth with solve this)
 
 ### Not Tested
 
@@ -58,13 +64,13 @@ Currently running:
 - [ ] Temperatures and stability with 100% CPU
 - [ ] BootCamp
 
-
 ## ACPI patches
 
-| Patch                 | Remark                         |
-| --------------------- | ------------------------------ |
-| SSDT-PLUG             | x86 plugin injection fix       |
-
+| Patch                | Remark                   |
+| -------------------- | ------------------------ |
+| SSDT-PLUG            | x86 plugin injection fix |
+| SSDT-RTCAWAC         |                          |
+| SSDT-EC-USBX-DESKTOP |                          |
 
 ## Pre-install: Creating the installation USB stick
 
@@ -72,41 +78,47 @@ First, read the [Dortania OC guide](https://dortania.github.io/OpenCore-Install-
 
 ## Getting a valid Mac serial key
 
-- [Fix iServices](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) if you want to use iMessage, FaceTime, iCloud. You need a valid, unique Mac serial key (the config.plist in this repository does not have one as all Mac devices - including hackintosh - need a unique serial) to be able to use Apple's cloud services and authentication. If you don't, you won't be able to login with an Apple ID, thus no App Store either! To generate a serial and update directly the config.plist, you can use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Use SMBIOS iMACPro1,1.
+- [Fix iServices](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) if you want to use iMessage, FaceTime, iCloud. You need a valid, unique Mac serial key (the config.plist in this repository does not have one as all Mac devices - including hackintosh - need a unique serial) to be able to use Apple's cloud services and authentication. If you don't, you won't be able to login with an Apple ID, thus no App Store either! To generate a serial and update directly the config.plist, you can use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Use SMBIOS MacPro7,1.
 
 ## BIOS Configuration
 
 ### Tweaker:
-* Extreme Memory Profile: **Profile 1**
-* Advanced CPU Settings:
+
+- Extreme Memory Profile: **Profile 1**
+- Advanced CPU Settings:
   - Hyper-Threading Technology: **Enabled**
   - Intel Turbo Boost Technology: **Enabled**
-* Advanced Memory Setting:
+- Advanced Memory Setting:
   - Memory Boot Mode: **Enable Fast Boot**
   - Memory Enhancement Setting: Enhanced Performance
+
 ### Settings:
-* Platform Power:
-  
-  * ErP: **Disabled**
-  
-  - Soft-Off by PWR-BTN: **Delay 4s**
-  - Power Loading: **Enabled**
-  - AC BACK: **Always On**
-* IO Ports:
+
+- Platform Power:
+
+  - ErP: **Disabled**
+
+  * Soft-Off by PWR-BTN: **Delay 4s**
+  * Power Loading: **Enabled**
+  * AC BACK: **Always On**
+
+- IO Ports:
   - Initial Display Output: **PCIe 1 Slot**
   - Above 4G Decoding: Enabled
   - Re-Size BAR Support: **Disabled**(Enabled after finish install if you want) (if you are using RX 6000 Series graphic card)
   - Super IO Configuration → Serial Port: **Disabled** (Will cause the issue with Apple Watch unlock)
   - USB Configuration:
-    * XHCI Hand-off → **Enabled**
-    * Legacy USB Support → **Enabled**
-    * USB Mass Storage Driver Support → **Enabled**
-    * Port 60/64 Emulation → **Disabled**
+    - XHCI Hand-off → **Enabled**
+    - Legacy USB Support → **Enabled**
+    - USB Mass Storage Driver Support → **Enabled**
+    - Port 60/64 Emulation → **Disabled**
   - Network Stack Configuration → Network Stack: **Disabled**
-* Miscellaneous:
+- Miscellaneous:
   - Intel Platform Trust Technology(PTT) → **Disabled**
   - Vt-d → **Disabled**
-### Boot: 
+
+### Boot:
+
 - Internal graphic **Disabled** (if you use 11th CPU)
 - CFG Lock: **Disabled**
 - Fast Boot: **Disable Link**
@@ -124,6 +136,10 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 - Generate your own CPU frequency vectors using [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend). The one included here is set to Balance power and CPU lowest frequency set to 500 MHz
 - (Optional) [Rectangle](https://github.com/rxhanson/Rectangle) for window management similar to Windows (but better)
 - (Optional) [LuLu](https://github.com/objective-see/LuLu) for network traffic control
+- (Optional) To install dual boot win 11.
+  - First method: Shrink the SSD and use this guide to install [Dual Windows](https://www.youtube.com/watch?v=ztxHRGdX0Sw)
+  - Second method: Unplug the SSD have MacOs and add the second SSD to install Windows or if you dont want to unplug your MacOs SSD, use the same method above with the second SSD
+- (Optional) Fix incorrect time change when dual boot (guide)(https://www.youtube.com/watch?v=KZ_1zw_HVR8)
 
 ## Issue
 
@@ -134,6 +150,8 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 - For how to update OpenCore and kexts, read [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/update.html#_5-boot). Personally, I use MountEFI to mount EFI partitions, ProperTree to edit plist files, and OCConfigCompare to compare my config files to the latest sample configs from OpenCore. I also always test drive my updated EFI with a USB stick before moving it to the EFI partition of the main SSD.
 
 ## CREDITS
+
 - [Serouin repo](https://github.com/serouin/b660m-aorus-pro-hackintosh)
 - [Dortania OC guide](https://dortania.github.io/OpenCore-Install-Guide/)
+- [Dual Windows](https://www.youtube.com/watch?v=ztxHRGdX0Sw)
 - Hackintosh Paradise (Discord channel) for EFI review and fake CPUid
