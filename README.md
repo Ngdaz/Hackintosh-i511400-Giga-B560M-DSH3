@@ -55,7 +55,7 @@ Currently running:
 ### Not working at the moment
 
 - [ ] DP with 165hz (I have 2k 170hz Monitor)
-- [ ] AirDrop (change to realmac bluetooth with solve this)
+- [ ] AirDrop (change to realmac bluetooth will solve this)
 
 ### Not Tested
 
