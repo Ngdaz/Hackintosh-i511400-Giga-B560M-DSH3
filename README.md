@@ -144,10 +144,12 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 ## Issue
 
 - Run this command in Recovery mode if you have monitor with high refresh rate (I have 2k and 170hz monitor). It will fix the screen go black when you change the refresh rate (only works with 120hz, 165hz still get black screen)
-  `cd /Volumes/your startup disk name/Users/your username/Library/Preferences/ByHost/`
-  `rm -f com.apple.windowserver.*`
-  `rm -f com.apple.preference.displays*`
-  
+```sh
+cd /Volumes/your startup disk name/Users/your username/Library/Preferences/ByHost
+rm -f com.apple.windowserver.*
+rm -f com.apple.preference.displays*
+```
+
 ## Note
 
 - For how to update OpenCore and kexts, read [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/update.html#_5-boot). Personally, I use MountEFI to mount EFI partitions, ProperTree to edit plist files, and OCConfigCompare to compare my config files to the latest sample configs from OpenCore. I also always test drive my updated EFI with a USB stick before moving it to the EFI partition of the main SSD.
