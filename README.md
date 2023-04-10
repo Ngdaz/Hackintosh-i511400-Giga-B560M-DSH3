@@ -158,5 +158,5 @@ rm -f com.apple.preference.displays*
 
 - [Serouin repo](https://github.com/serouin/b660m-aorus-pro-hackintosh)
 - [Dortania OC guide](https://dortania.github.io/OpenCore-Install-Guide/)
-- [Dual Windows](https://www.youtube.com/watch?v=ztxHRGdX0Sw)
+- [Dual boot Windows](https://www.youtube.com/watch?v=ztxHRGdX0Sw)
 - Hackintosh Paradise (Discord channel) for EFI review and fake CPUid
