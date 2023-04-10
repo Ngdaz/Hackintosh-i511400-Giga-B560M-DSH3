@@ -50,7 +50,7 @@ Currently running:
 ### Working, sort of
 
 - [x] Sometime need to turn off and reopen monitor after wakeup from sleep
-- [x] Screen go black but the PC still running when change win and macos have the same refresh rate (I can't fix this but will merge pull request)
+- [x] Screen go black but the PC still running when Win and Macos have the same refresh rate (I can't fix this but will merge pull request)
 
 ### Not working at the moment
 
