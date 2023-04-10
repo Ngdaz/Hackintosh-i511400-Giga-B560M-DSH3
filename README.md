@@ -66,11 +66,11 @@ Currently running:
 
 ## ACPI patches
 
-| Patch                | Remark                   |
-| -------------------- | ------------------------ |
-| SSDT-PLUG            | x86 plugin injection fix |
-| SSDT-RTCAWAC         |                          |
-| SSDT-EC-USBX-DESKTOP |                          |
+| Patch                | Remark                    |
+| -------------------- | ------------------------- |
+| SSDT-PLUG            | x86 plugin injection fix  |
+| SSDT-RTCAWAC         | Fix the system clocks     |
+| SSDT-EC-USBX-DESKTOP | Fixing Embedded Controller|
 
 ## Pre-install: Creating the installation USB stick
 
