@@ -1,6 +1,6 @@
 # Hackintosh-i511400-Giga-B560M-DSH3-OpenCore
 
-This repo contains information for getting macOS 12 Montery for a PC.
+This repo contains information for getting macOS 12 Montery for my own PC.
 
 The compatibility is very good for the most part, and it behaves as a real I MAC Pro. In general, the experience is pleasant, both in macOS and Win11 dual boot.
 
@@ -10,7 +10,7 @@ Currently running:
 | ------------- | ------- |
 | macOS version | 12.6    |
 | OpenCore      | 0.8.9   |
-| BIOS version  | F21     |
+| BIOS version  | F8      |
 
 ## Hardware info
 
@@ -46,6 +46,7 @@ Currently running:
 - [x] Dual boot with Win 11
 - [x] DP with 120hz
 - [x] HDMI with 144hz
+- [x] CPU Power Management
 
 ### Working, sort of
 
@@ -60,17 +61,16 @@ Currently running:
 ### Not Tested
 
 - [ ] GPU acceleration
-- [ ] CPU Power Management
 - [ ] Temperatures and stability with 100% CPU
 - [ ] BootCamp
 
 ## ACPI patches
 
-| Patch                | Remark                    |
-| -------------------- | ------------------------- |
-| SSDT-PLUG            | x86 plugin injection fix  |
-| SSDT-RTCAWAC         | Fix the system clocks     |
-| SSDT-EC-USBX-DESKTOP | Fixing Embedded Controller|
+| Patch                | Remark                     |
+| -------------------- | -------------------------- |
+| SSDT-PLUG            | x86 plugin injection fix   |
+| SSDT-RTCAWAC         | Fix the system clocks      |
+| SSDT-EC-USBX-DESKTOP | Fixing Embedded Controller |
 
 ## Pre-install: Creating the installation USB stick
 
@@ -84,27 +84,31 @@ First, read the [Dortania OC guide](https://dortania.github.io/OpenCore-Install-
 
 ### Tweaker:
 
-- Extreme Memory Profile: **Profile 1**
 - Advanced CPU Settings:
+
   - Hyper-Threading Technology: **Enabled**
-  - Intel Turbo Boost Technology: **Enabled**
+  - Intel Turbo Boost Technology: **Auto**
+  - Turbo power Limit: Enable
+    - Package Power Limit1 - TDP (Watts): 160
+    - Package Power Limit2 (Watts): 160
+
 - Advanced Memory Setting:
-  - Memory Boot Mode: **Enable Fast Boot**
+
   - Memory Enhancement Setting: Enhanced Performance
+
+- Advanced Voltage Settings > CPU/VRM Settings:
+  - CPU Vcore Loadline Calibration: **Low**
 
 ### Settings:
 
 - Platform Power:
 
   - ErP: **Disabled**
-
-  * Soft-Off by PWR-BTN: **Delay 4s**
-  * Power Loading: **Enabled**
-  * AC BACK: **Always On**
+  - Power Loading: **Enabled**
 
 - IO Ports:
   - Initial Display Output: **PCIe 1 Slot**
-  - Above 4G Decoding: Enabled
+  - Above 4G Decoding: **Enabled**
   - Re-Size BAR Support: **Disabled**(Enabled after finish install if you want) (if you are using RX 6000 Series graphic card)
   - Super IO Configuration → Serial Port: **Disabled** (Will cause the issue with Apple Watch unlock)
   - USB Configuration:
@@ -122,7 +126,7 @@ First, read the [Dortania OC guide](https://dortania.github.io/OpenCore-Install-
 - Internal graphic **Disabled** (if you use 11th CPU)
 - CFG Lock: **Disabled**
 - Fast Boot: **Disable Link**
-- Windows 10 Features: **Other OS**
+- Windows 10 Features: **Windows 10**
 - CSM Support: **Disabled**
 - Secure Boot: **Disabled** (Secure Boot will be disabled by default, but good to check)
 
@@ -144,6 +148,7 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 ## Issue
 
 - Run this command in Recovery mode if you have monitor with high refresh rate (I have 2k and 170hz monitor). It will fix the screen go black when you change the refresh rate (only works with 120hz, 165hz still get black screen)
+
 ```sh
 cd /Volumes/your startup disk name/Users/your username/Library/Preferences/ByHost
 rm -f com.apple.windowserver.*
@@ -156,7 +161,5 @@ rm -f com.apple.preference.displays*
 
 ## CREDITS
 
-- [Serouin repo](https://github.com/serouin/b660m-aorus-pro-hackintosh)
+- [B660m aorus pro](https://github.com/13thdemarch/b660m-aorus-pro-hackintosh)
 - [Dortania OC guide](https://dortania.github.io/OpenCore-Install-Guide/)
-- [Dual boot Windows](https://www.youtube.com/watch?v=ztxHRGdX0Sw)
-- Hackintosh Paradise (Discord channel) for EFI review and fake CPUid
