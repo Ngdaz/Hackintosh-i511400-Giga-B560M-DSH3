@@ -8,8 +8,8 @@ Currently running:
 
 | Component     | Version |
 | ------------- | ------- |
-| macOS version | 12.6    |
-| OpenCore      | 0.8.9   |
+| macOS version | 13.4.1. |
+| OpenCore      | 0.9.3   |
 | BIOS version  | F8      |
 
 ## Hardware info
