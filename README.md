@@ -1,6 +1,6 @@
 # Hackintosh-i511400-Giga-B560M-DSH3-OpenCore
 
-This repo contains information for getting macOS 12 Montery for my own PC.
+This repo contains information for getting macOS Ventura for my own PC.
 
 The compatibility is very good for the most part, and it behaves as a real I MAC Pro. In general, the experience is pleasant, both in macOS and Win11 dual boot.
 
