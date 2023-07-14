@@ -74,7 +74,7 @@ Currently running:
 
 ## Pre-install: Creating the installation USB stick
 
-First, read the [Dortania OC guide](https://dortania.github.io/OpenCore-Install-Guide/). The guide will take you through the creation of installation USB and drive formatting. Update your laptop to the latest BIOS firmware from your existing OS (the easiest way is to use fwupd on linux).
+First, read the [Dortania OC guide](https://dortania.github.io/OpenCore-Install-Guide/). The guide will take you through the creation of installation USB and drive formatting. Update your PC to the latest BIOS firmware from your existing OS.
 
 ## Getting a valid Mac serial key
 
