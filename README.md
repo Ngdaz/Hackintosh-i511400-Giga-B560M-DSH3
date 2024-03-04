@@ -14,17 +14,17 @@ Currently running:
 
 ## Hardware info
 
-| Component | Model                       |
-| --------- | --------------------------- |
-| CPU       | Intel i5-11400              |
-| Memory    | 16GB 2666Mhz                |
-| Storage1  | WD SN750 250GB              |
-| Storage2  | HDD WD 500GB                |
-| Storage3  | SSD Sata BX500 240GB        |
-| Display   | M27Q Gigabyte 2k 170Hz      |
-| dGPU      | 6600xt XFX 8GB              |
-| LAN       | Realtek's Gigabit Ethernet. |
-| Bluetooth | USB Ugreen 30443            |
+| Component | Model                                        |
+| --------- | -------------------------------------------- |
+| CPU       | Intel i5-11400                               |
+| Memory    | 32GB Corsair Vengeance RGB Pro 16GB 3200Mhz  |
+| Storage1  | WD SN750 250GB                               |
+| Storage2  | HDD WD 500GB                                 |
+| Storage3  | SSD Sata BX500 240GB                         |
+| Display   | M27Q Gigabyte 2k 170Hz                       |
+| dGPU      | 6600xt XFX 8GB                               |
+| LAN       | Realtek's Gigabit Ethernet.                  |
+| Bluetooth | USB Ugreen 30443                             |
 
 ## Status
 
@@ -41,7 +41,7 @@ Currently running:
 - [x] FileVault
 - [x] DRM content playback (Netflix, Apple TV+)
 - [x] Audio jack
-- [x] Bluetooth with usb ugreen and bluetooth kext
+- [x] Bluetooth with usb ugreen and Bluetooth kext
 - [x] CPU, GPU, Fan sensor
 - [x] Dual boot with Win 11
 - [x] DP with 120hz
@@ -50,13 +50,13 @@ Currently running:
 
 ### Working, sort of
 
-- [x] Sometime need to turn off and reopen monitor after wakeup from sleep
-- [x] Screen go black but the PC still running when Win and Macos have the same refresh rate (I can't fix this but will merge pull request)
+- [x] Sometimes need to turn off and reopen the monitor after wakeup from sleep
+- [x] Screen goes black but the PC still running when Win and macOS have the same refresh rate (I can't fix this but will merge the pull request)
 
 ### Not working at the moment
 
 - [ ] DP with 165hz (I have 2k 170hz Monitor)
-- [ ] AirDrop (change to realmac bluetooth will solve this)
+- [ ] AirDrop (change to real Mac Bluetooth will solve this)
 
 ### Not Tested
 
@@ -78,7 +78,7 @@ First, read the [Dortania OC guide](https://dortania.github.io/OpenCore-Install-
 
 ## Getting a valid Mac serial key
 
-- [Fix iServices](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) if you want to use iMessage, FaceTime, iCloud. You need a valid, unique Mac serial key (the config.plist in this repository does not have one as all Mac devices - including hackintosh - need a unique serial) to be able to use Apple's cloud services and authentication. If you don't, you won't be able to login with an Apple ID, thus no App Store either! To generate a serial and update directly the config.plist, you can use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Use SMBIOS MacPro7,1.
+- [Fix iServices](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) if you want to use iMessage, FaceTime, iCloud. You need a valid, unique Mac serial key (the config.plist in this repository does not have one as all Mac devices - including hackintosh - need a unique serial) to be able to use Apple's cloud services and authentication. If you don't, you won't be able to log in with an Apple ID, thus no App Store either! To generate a serial and update directly the config.plist, you can use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Use SMBIOS MacPro7,1.
 
 ## BIOS Configuration
 
@@ -147,7 +147,7 @@ Now you can boot from your USB stick. If it fails to boot, try a different USB s
 
 ## Issue
 
-- Run this command in Recovery mode if you have monitor with high refresh rate (I have 2k and 170hz monitor). It will fix the screen go black when you change the refresh rate (only works with 120hz, 165hz still get black screen)
+- Run this command in Recovery mode if you have a monitor with a high refresh rate (I have a 2k and 170hz monitor). It will fix the screen to going black when you change the refresh rate (only works with 120hz, 165hz still gets black screen)
 
 ```sh
 cd /Volumes/your startup disk name/Users/your username/Library/Preferences/ByHost
