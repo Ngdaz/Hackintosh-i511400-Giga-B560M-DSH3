@@ -34,6 +34,7 @@ Currently running:
 - [x] Ethernet
 - [x] iCloud services - iMessage, FaceTime, iCloud Drive
 - [x] Mac-like booting interface for multiboot
+- [x] Dual Boot with Win 11
 - [x] Sleep/wake
 - [x] All USB port
 - [x] Native CPU power management
@@ -52,7 +53,6 @@ Currently running:
 
 - [x] Sometimes need to turn off and reopen the monitor after wakeup from sleep
 - [x] Screen goes black but the PC still running when Win and macOS have the same refresh rate (I can't fix this but will merge the pull request)
-- [x] Dual Boot with Win 11
 
 ### Not working at the moment
 
