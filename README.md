@@ -52,7 +52,6 @@ Currently running:
 ### Working, sort of
 
 - [x] Sometimes need to turn off and reopen the monitor after wakeup from sleep
-- [x] Screen goes black but the PC still running when Win and macOS have the same refresh rate (I can't fix this but will merge the pull request)
 
 ### Not working at the moment
 
